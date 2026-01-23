@@ -1,5 +1,5 @@
 {
-  "name": "wuhu",
+  "name": "vue3",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "lint": "run-s lint:*",
+    "lint": "run-s \"lint:*\"",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
     "format": "prettier --write --experimental-cli src/"
@@ -17,12 +17,26 @@
   "dependencies": {
     "pinia": "^3.0.4",
     "vue": "^3.5.26",
-    "vue-router": "^4.6.4"
+    "vue-router": "^4.6.4",
+    "@csstools/normalize.css": "^12.1.1",
+    "@element-plus/icons-vue": "^2.3.2",
+    "@vueuse/core": "^14.1.0",
+    "@vueuse/router": "^14.1.0",
+    "axios": "^1.13.2",
+    "colord": "^2.9.3",
+    "echarts": "^6.0.0",
+    "element-plus": "^2.13.0",
+    "file-saver": "^2.0.5",
+    "v-scale-screen": "^2.3.0",
+    "vue-echarts": "^8.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@iconify-json/ep": "^1.2.3",
     "@tsconfig/node24": "^24.0.4",
     "@types/node": "^24.10.9",
     "@vitejs/plugin-vue": "^6.0.3",
+    "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.39.2",
@@ -33,12 +47,32 @@
     "npm-run-all2": "^8.0.4",
     "oxlint": "~1.41.0",
     "prettier": "3.8.1",
+    "sass-embedded": "^1.97.1",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.0",
     "typescript": "~5.9.3",
+    "unocss": "^66.5.10",
+    "unplugin-auto-import": "^20.3.0",
+    "unplugin-icons": "^22.5.0",
+    "unplugin-vue-components": "^30.0.0",
     "vite": "^7.3.1",
+    "vite-plugin-compression2": "^2.4.0",
+    "vite-plugin-font": "^5.1.2",
+    "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-restart": "^2.0.0",
     "vite-plugin-vue-devtools": "^8.0.5",
     "vue-tsc": "^3.2.2"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
-  }
+  },
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "cn-font-split",
+    "esbuild",
+    "koffi",
+    "protobufjs",
+    "sharp",
+    "vue-demi"
+  ]
 }
