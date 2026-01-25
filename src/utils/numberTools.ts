@@ -9,7 +9,7 @@ export const formatWithThousands = (num: number): string => num.toLocaleString('
  * 最多保留两位小数
  * @param {number} value
  */
-export const toTwoDecimals = (value: number | string | null | undefined): string => {
+export const toTwoDecimals = (value: number | string | null | undefined) => {
   if (value === null || value === undefined || value === '') return '-'
   const num = Number(value)
   if (Number.isNaN(num)) return String(value)

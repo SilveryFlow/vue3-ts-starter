@@ -12,7 +12,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
-    HomeView: typeof import('./../views/HomeView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
