@@ -66,6 +66,7 @@ export default defineConfig((config) => {
           }),
           VChartResolver,
         ],
+        dirs: ['src/components', 'src/views', 'src/layout'],
         dts: 'src/types/components.d.ts',
       }),
       Icons({
@@ -90,7 +91,7 @@ export default defineConfig((config) => {
       open: true,
       // 预热常用文件，提升首屏加载速度
       warmup: {
-        clientFiles: ['./src/main.ts', './src/App.vue', './src/router/index.ts'],
+        clientFiles: ['./src/main.js', './src/App.vue', './src/router/index.js'],
       },
       proxy: {
         // HTTP API 代理
@@ -106,6 +107,7 @@ export default defineConfig((config) => {
           // target: 'ws://localhost:10002', // WebSocket 地址
           changeOrigin: true,
           ws: true, // 开启 websocket 代理
+          logLevel: 'debug',
           rewrite: (path) => path.replace(new RegExp(`^${WS_BASE}`), ''),
         },
 
@@ -146,4 +148,3 @@ export default defineConfig((config) => {
     },
   }
 })
-
