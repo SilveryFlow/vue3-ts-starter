@@ -1,14 +1,24 @@
+import path from 'node:path'
+import fs from 'node:fs'
+
 import { globalIgnores } from 'eslint/config'
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
 import pluginVue from 'eslint-plugin-vue'
-import skipFormatting from 'eslint-config-prettier/flat'
-import pluginOxlint from 'eslint-plugin-oxlint'
 import pluginVitest from '@vitest/eslint-plugin'
+import pluginOxlint from 'eslint-plugin-oxlint'
+import unocss from '@unocss/eslint-config/flat'
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 // import { configureVueProject } from '@vue/eslint-config-typescript'
 // configureVueProject({ scriptLangs: ['ts', 'tsx'] })
 // More info at https://github.com/vuejs/eslint-config-typescript/#advanced-setup
+
+// 读取 unplugin-auto-import 生成的 ESLint globals
+const autoImportGlobalsPath = path.resolve('./.eslintrc-auto-import.json')
+let autoImportGlobals = {}
+if (fs.existsSync(autoImportGlobalsPath)) {
+  autoImportGlobals = JSON.parse(fs.readFileSync(autoImportGlobalsPath, 'utf-8')).globals || {}
+}
 
 export default defineConfigWithVueTs(
   {
@@ -18,6 +28,16 @@ export default defineConfigWithVueTs(
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
 
+  {
+    languageOptions: {
+      globals: {
+        ...autoImportGlobals,
+      },
+    },
+  },
+
+  unocss,
+
   ...pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
 
@@ -26,7 +46,5 @@ export default defineConfigWithVueTs(
     files: ['src/**/__tests__/*'],
   },
 
-  skipFormatting,
-
-  ...pluginOxlint.configs['flat/recommended'],
+  ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),
 )

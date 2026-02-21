@@ -13,20 +13,12 @@
     "lint": "run-s \"lint:*\"",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/",
+    "format": "oxfmt src/",
     "spell": "cspell \"**/*.{js,ts,mjs,cjs,json,css,less,scss,vue,html,md}\"",
     "commit": "git-cz",
     "prepare": "husky"
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git"
-    }
-  },
   "dependencies": {
-    "pinia": "^3.0.4",
-    "vue": "^3.5.26",
-    "vue-router": "^4.6.4",
     "@csstools/normalize.css": "^12.1.1",
     "@element-plus/icons-vue": "^2.3.2",
     "@vueuse/core": "^14.1.0",
@@ -36,8 +28,11 @@
     "echarts": "^6.0.0",
     "element-plus": "^2.13.0",
     "file-saver": "^2.0.5",
+    "pinia": "^3.0.4",
     "v-scale-screen": "^2.3.0",
-    "vue-echarts": "^8.0.1"
+    "vue": "^3.5.28",
+    "vue-echarts": "^8.0.1",
+    "vue-router": "^5.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.3.1",
@@ -46,10 +41,10 @@
     "@iconify-json/ep": "^1.2.3",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^27.0.0",
-    "@types/node": "^24.10.9",
-    "@vitejs/plugin-vue": "^6.0.3",
-    "@vitest/eslint-plugin": "^1.6.6",
-    "@vue/eslint-config-prettier": "^10.2.0",
+    "@types/node": "^24.10.13",
+    "@unocss/eslint-config": "^66.5.12",
+    "@vitejs/plugin-vue": "^6.0.4",
+    "@vitest/eslint-plugin": "^1.6.9",
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
@@ -57,21 +52,20 @@
     "cspell": "^9.6.0",
     "cz-git": "^1.12.0",
     "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-oxlint": "~1.41.0",
-    "eslint-plugin-vue": "~10.7.0",
+    "eslint-plugin-oxlint": "~1.49.0",
+    "eslint-plugin-vue": "~10.8.0",
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
-    "jsdom": "^27.4.0",
+    "jsdom": "^28.1.0",
     "lint-staged": "^16.2.7",
     "npm-run-all2": "^8.0.4",
-    "oxlint": "~1.41.0",
-    "prettier": "3.8.1",
-    "sass-embedded": "^1.97.1",
+    "oxfmt": "^0.32.0",
+    "oxlint": "~1.49.0",
+    "sass-embedded": "^1.97.3",
     "sharp": "^0.34.5",
     "svgo": "^4.0.0",
     "typescript": "~5.9.3",
-    "unocss": "^66.5.10",
+    "unocss": "^66.5.12",
     "unplugin-auto-import": "^20.3.0",
     "unplugin-icons": "^22.5.0",
     "unplugin-vue-components": "^30.0.0",
@@ -80,9 +74,14 @@
     "vite-plugin-font": "^5.1.2",
     "vite-plugin-image-optimizer": "^2.0.3",
     "vite-plugin-restart": "^2.0.0",
-    "vite-plugin-vue-devtools": "^8.0.5",
+    "vite-plugin-vue-devtools": "^8.0.6",
     "vitest": "^4.0.18",
-    "vue-tsc": "^3.2.2"
+    "vue-tsc": "^3.2.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
