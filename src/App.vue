@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 </script>
 
 <template>
@@ -9,7 +9,7 @@
 </template>
 
 <style scoped lang="scss">
-  #app{
-    overflow: auto;
-  }
+#app {
+  overflow: auto;
+}
 </style>

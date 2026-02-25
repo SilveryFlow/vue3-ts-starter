@@ -15,13 +15,13 @@ const service = axios.create({
 
 // request拦截器
 service.interceptors.request.use(
-  (config) => {
+  config => {
     if (config.data instanceof FormData) {
       config.headers['Content-Type'] = 'multipart/form-data'
     }
     return config
   },
-  (error) => {
+  error => {
     console.log(error)
     return Promise.reject(error)
   },
@@ -29,7 +29,7 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
-  (res) => {
+  res => {
     // 未设置状态码则默认成功状态
     const code = res.data.code || 200
     // 获取错误信息
@@ -56,7 +56,7 @@ service.interceptors.response.use(
       return res.data
     }
   },
-  (error) => {
+  error => {
     console.log('err' + error)
     let { message } = error
 

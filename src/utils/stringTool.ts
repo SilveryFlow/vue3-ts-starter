@@ -7,8 +7,6 @@ export const toCamelCase = (str: string): string => {
   return str.toLowerCase().replace(/[-_](.)/g, (_, c) => c.toUpperCase())
 }
 
-
-
 export interface DateInfo {
   /* 日期对象 */
   dateObj: Date
