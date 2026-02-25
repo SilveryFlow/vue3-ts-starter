@@ -1,7 +1,7 @@
 /** @type {import('lint-staged').Configuration} */
 export default {
   '**/*.{js,ts,vue,jsx,tsx}': [
-    'eslint --fix --cache',
+    'eslint . --fix --cache',
     'oxfmt --no-error-on-unmatched-pattern',
     'cspell --no-exit-code --no-must-find-files --cache',
   ],
