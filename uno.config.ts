@@ -1,7 +1,7 @@
 // uno.config.ts
 import {
   defineConfig,
-  presetWind3,
+  presetWind4,
   presetAttributify,
   presetIcons,
   transformerDirectives,
@@ -11,7 +11,7 @@ import {
 export default defineConfig({
   // 1. 预设 (Presets)
   presets: [
-    presetWind3(),
+    presetWind4(),
     // 启用属性模式：解决 HTML class 冗长问题
     // <div class="m-2 p-1 text-red"> 变成 <div m-2 p-1 text-red>
     presetAttributify(),
