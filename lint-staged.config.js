@@ -2,7 +2,7 @@
 export default {
   '**/*.{js,ts,vue,jsx,tsx}': [
     'oxlint --fix',
-    'eslint . --fix --cache',
+    'eslint --fix --cache',
     'oxfmt --no-error-on-unmatched-pattern',
     'cspell --no-exit-code --no-must-find-files --cache',
   ],
