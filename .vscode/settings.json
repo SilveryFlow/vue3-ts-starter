@@ -2,8 +2,8 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "tsconfig.json": "tsconfig.*.json, env.d.ts",
-    "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
-    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*, .editorconfig, commitlint.config.js, lint-staged.config.js, cspell.config.js"
+    "vite.config.*": "vitest.config.*, cypress.config.*, playwright.config.*",
+    "package.json": "package-lock.json, bun.lock, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*, .editorconfig, commitlint.config.js, lint-staged.config.js, cspell.config.js"
   },
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"

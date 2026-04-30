@@ -18,7 +18,7 @@ import Font from 'vite-plugin-font'
 import { VChartResolver } from './scripts/vite/unplugin-vue-components-resolvers'
 
 // https://vite.dev/config/
-export default defineConfig((config) => {
+export default defineConfig(config => {
   const { mode } = config
   const env = loadEnv(mode, process.cwd(), '')
   const port = Number(env.VITE_PORT) || 5173
@@ -98,7 +98,7 @@ export default defineConfig((config) => {
         [API_BASE]: {
           target: 'http://127.0.0.1:10002', // 后端接口地址
           changeOrigin: true,
-          rewrite: (path) => path.replace(new RegExp(`^${API_BASE}`), ''),
+          rewrite: path => path.replace(new RegExp(`^${API_BASE}`), ''),
         },
 
         // WebSocket 代理
@@ -108,30 +108,28 @@ export default defineConfig((config) => {
           changeOrigin: true,
           ws: true, // 开启 websocket 代理
           logLevel: 'debug',
-          rewrite: (path) => path.replace(new RegExp(`^${WS_BASE}`), ''),
+          rewrite: path => path.replace(new RegExp(`^${WS_BASE}`), ''),
         },
 
         // UE
         [UE_BASE]: {
           target: 'http://127.0.0.1:901', // UE 地址
           changeOrigin: true,
-          rewrite: (path) => path.replace(new RegExp(`^${UE_BASE}`), ''),
+          rewrite: path => path.replace(new RegExp(`^${UE_BASE}`), ''),
         },
       },
     },
 
     build: {
-      rollupOptions: {
+      rolldownOptions: {
         output: {
-          // 静态资源分类打包
           chunkFileNames: 'js/[name]-[hash].js',
           entryFileNames: 'js/[name]-[hash].js',
 
-          assetFileNames: (assetInfo) => {
+          assetFileNames: assetInfo => {
             const name = assetInfo?.names?.[0] ?? ''
             if (!name) return 'assets/[name]-[hash][extname]'
 
-            // 根据文件类型分类存放
             if (name.endsWith('.css')) {
               return 'css/[name]-[hash][extname]'
             }
@@ -143,6 +141,31 @@ export default defineConfig((config) => {
             }
             return 'assets/[name]-[hash][extname]'
           },
+        },
+
+        advancedChunks: {
+          groups: [
+            {
+              name: 'framework',
+              test: /\/node_modules\/(vue|@vue\/|vue-router|pinia)\//,
+              priority: 20,
+            },
+            {
+              name: 'echarts',
+              test: /\/node_modules\/(echarts|zrender)\//,
+              priority: 15,
+            },
+            {
+              name: 'element-plus',
+              test: /\/node_modules\/element-plus\//,
+              priority: 15,
+            },
+            {
+              name: 'vendor',
+              test: /\/node_modules\//,
+              priority: 10,
+            },
+          ],
         },
       },
     },
