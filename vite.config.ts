@@ -132,6 +132,9 @@ export default defineConfig(config => {
             if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(name)) {
               return 'images/[name]-[hash][extname]'
             }
+            if (/\.(woff2?|eot|ttf|otf)$/.test(name)) {
+              return 'fonts/[name]-[hash][extname]'
+            }
             return 'assets/[name]-[hash][extname]'
           },
         },
