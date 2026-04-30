@@ -1,14 +1,14 @@
-# Vue3 + TypeScript + Vite 7 项目模板
+# Vue3 + TypeScript + Vite 8 项目模板
 
-这是一个基于 Vue 3.5 + TypeScript + Vite 7 的现代化前端项目模板，集成了当前主流的技术栈和最佳实践。
+这是一个基于 Vue 3.5 + TypeScript + Vite 8 的现代化前端项目模板，集成了当前主流的技术栈和最佳实践。
 
 ## 特性
 
 ### 核心技术栈
 
 - **Vue 3.5**: 使用 Composition API 和 `<script setup>` 语法
-- **TypeScript 5.9**: 完整的类型支持
-- **Vite 7**: 下一代前端构建工具
+- **TypeScript 6**: 完整的类型支持
+- **Vite 8**: 下一代前端构建工具
 - **Pinia 3**: 官方推荐的状态管理库
 - **Vue Router 5**: 路由管理
 - **Element Plus**: 基于 Vue 3 的组件库，已配置按需导入
@@ -28,10 +28,10 @@
 - **构建优化**:
   - 图片压缩 (`vite-plugin-image-optimizer`)
   - Gzip/Brotli 压缩 (`vite-plugin-compression2`)
-  - 静态资源分类打包
+  - 智能分包策略 (`framework`, `echarts`, `element-plus` 等独立分包)
 - **代码规范**:
-  - ESLint (Flat Config) + Oxlint (极速 Lint) + Oxfmt (代码格式化)
-  - TypeScript 严格模式
+  - ESLint 10 (Flat Config) + Oxlint (极速 Lint) + Oxfmt (代码格式化)
+  - TypeScript 严格模式 (`noUncheckedIndexedAccess`)
   - CSpell 拼写检查
 - **Git 工作流**:
   - Husky Git Hooks
@@ -41,7 +41,7 @@
 
 ### 测试
 
-- **Vitest**: 单元测试框架，兼容 Vitest ESLint 规则
+- **Vitest 4**: 单元测试框架，兼容 Vitest ESLint 规则
 
 ### 工具库
 
@@ -118,6 +118,9 @@ bun lint
 
 # 格式化代码 (使用 Oxfmt)
 bun format
+
+# 检查格式是否符合要求
+bun run format:check
 
 # 拼写检查
 bun spell
@@ -243,16 +246,19 @@ TypeScript 默认无法处理 `.vue` 文件的类型信息，因此我们使用 
 
 | 依赖           | 版本     | 说明       |
 | -------------- | -------- | ---------- |
-| `vue`          | ^3.5.28  | 核心框架   |
-| `vue-router`   | ^5.0.2   | 路由管理   |
+| `vue`          | ^3.5.32  | 核心框架   |
+| `vue-router`   | ^5.0.4   | 路由管理   |
 | `pinia`        | ^3.0.4   | 状态管理   |
 | `element-plus` | ^2.13.0  | UI 组件库  |
 | `echarts`      | ^6.0.0   | 图表库     |
 | `unocss`       | ^66.5.12 | 原子化 CSS |
 | `axios`        | ^1.13.2  | HTTP 请求  |
-| `typescript`   | ~5.9.3   | 类型支持   |
-| `vite`         | ^7.3.1   | 构建工具   |
-| `vitest`       | ^4.0.18  | 单元测试   |
+| `typescript`   | ~6.0.0   | 类型支持   |
+| `vite`         | ^8.0.8   | 构建工具   |
+| `vitest`       | ^4.1.4   | 单元测试   |
+| `oxlint`       | ~1.62.0  | 极速 Lint  |
+| `oxfmt`        | ^0.47.0  | 代码格式化 |
+| `eslint`       | ^10.2.1  | 代码检查   |
 
 ## License
 
