@@ -10,8 +10,6 @@ import '@csstools/normalize.css'
 import 'virtual:uno.css'
 import '@/assets/styles/index.scss'
 
-import '@/utils/fontSplitImport'
-
 const app = createApp(App)
 
 app.use(createPinia())

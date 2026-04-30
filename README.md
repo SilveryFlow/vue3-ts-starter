@@ -24,7 +24,6 @@
 - **样式系统**:
   - SCSS 预处理器，配置了自动注入全局变量
   - Normalize.css 重置样式
-  - 字体文件自动分割与优化加载 (`vite-plugin-font`)
 - **构建优化**:
   - 图片压缩 (`vite-plugin-image-optimizer`)
   - Gzip/Brotli 压缩 (`vite-plugin-compression2`)
@@ -142,7 +141,6 @@ git commit -m "feat: 添加新功能"
 src/
 ├── api/             # 接口请求层
 ├── assets/          # 静态资源
-│   ├── fonts/       # 字体文件
 │   └── styles/      # 样式文件 (index.scss, variables.scss)
 ├── components/      # 公共组件 (自动注册)
 ├── config/          # 全局配置
