@@ -137,31 +137,31 @@ export default defineConfig(config => {
             }
             return 'assets/[name]-[hash][extname]'
           },
-        },
 
-        advancedChunks: {
-          groups: [
-            {
-              name: 'framework',
-              test: /\/node_modules\/(vue|@vue\/|vue-router|pinia)\//,
-              priority: 20,
-            },
-            {
-              name: 'echarts',
-              test: /\/node_modules\/(echarts|zrender)\//,
-              priority: 15,
-            },
-            {
-              name: 'element-plus',
-              test: /\/node_modules\/element-plus\//,
-              priority: 15,
-            },
-            {
-              name: 'vendor',
-              test: /\/node_modules\//,
-              priority: 10,
-            },
-          ],
+          codeSplitting: {
+            groups: [
+              {
+                name: 'framework',
+                test: /node_modules[\\/]vue/,
+                priority: 20,
+              },
+              {
+                name: 'echarts',
+                test: /node_modules[\\/]echarts/,
+                priority: 15,
+              },
+              {
+                name: 'element-plus',
+                test: /node_modules[\\/]element-plus/,
+                priority: 15,
+              },
+              {
+                name: 'vendor',
+                test: /node_modules/,
+                priority: 10,
+              },
+            ],
+          },
         },
       },
     },
